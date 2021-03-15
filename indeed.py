@@ -1,3 +1,16 @@
+'''
+NOTE: This is not my work.
+
+Source: [Github](https://github.com/jlgamez/indeed-jobs-scraper)
+[Article](https://jlgamez.com/how-i-scrape-jobs-data-from-indeed-com-with-python/)
+
+[Article 2](https://www.jobspikr.com/blog/scraping-indeed-job-data-using-python/)
+
+I built on top of the work I found in these links to match my project needs.
+'''
+
+
+
 import json
 import re
 import ssl

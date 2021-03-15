@@ -1,5 +1,5 @@
 '''
-This is going to be used for scraping Indeed.
+This is going to be used for scraping Indeed and LinkedIn.
 
 Sources:
 
@@ -8,13 +8,5 @@ Sources:
 [Article 2](https://www.jobspikr.com/blog/scraping-indeed-job-data-using-python/)
 
 
-Target Data Fields:
-* Job Title
-* Summary
-* Location
-* Name of the Company
-* The Date posted
-* Details
-* Job URL
 
 '''
