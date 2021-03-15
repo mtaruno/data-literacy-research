@@ -212,7 +212,7 @@ def scrape():
                       "Applicant Count": applicant_count})
     
     # Saving dataframe into csv, with a timestamp attached to it
-    df.to_csv("results/job_scraping" + str(datetime.now())[:19] + ".csv")
+    df.to_csv("data/scraping_results/linkedin_" + str(datetime.now())[:19] + ".csv")
     
     return df
 
