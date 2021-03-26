@@ -1,70 +1,57 @@
-# All imports
 
 import pandas as pd
-print(f"Pandas: {pd.__version__}")
 import numpy as np
-print(f"Numpy: {np.__version__}")
 # Visualization 
 import seaborn as sns
 import matplotlib.pyplot as plt
-sns.set(style="ticks", color_codes=True)
 import os
 # Text Stuff
 from sklearn.feature_extraction.text import CountVectorizer
 import nltk
+# Wordcloud
+from wordcloud import WordCloud
 from nltk.corpus import stopwords
 
 
-def ETL(
-    ''' This function is used to do all the extract, transform, load work.
-    Inputs: Nothing
-    Outputs: Dataframe with both Indeed and LinkedIn data
+# Combining entire description column into a single string
 
-
+def visualize_counts(data, output_path = "/Users/mtaruno/Documents/Documents - Matthew’s MacBook Air/Work/SPRING2021/Independent/Independent Study/Dev/visualizations"):
     
-    '''
-
-    # Ingesting the data from the Indeed scraping
-
-    indeed = pd.DataFrame(columns = ['date', 'details', 'location', 'summary', 'title', 'url', 'rating'])
-
-    for file in [i for i in os.listdir('results') if 'data.json' in i]:
-        indeed = indeed.append(pd.read_json('results/' + file))
-        
-    # Combining the Details and Summary section from the indeed into - also adding location 
-    # ONE column
-    def combine(df):
-        ''' 
-        Combining the details and summary section
-        Bonus: adding the location info
-        '''
-        location = []
-        full = []
-        
-        for i, j, loc in zip(df['details'], df['summary'], df['location']):
-            full.append(i + '\n' + j)
-            
-            loc = loc.lower()
-            
-            if "san francisco" in loc or "sf" in loc:
-                location.append("san francisco")
-            elif "new york" in loc or "ny" in loc:
-                location.append("new york")
-            elif "texas" in loc or "tx" in loc:
-                location.append("texas")
-            else:
-                location.append("other")
-                
-        return pd.DataFrame({'Title': df['title'], 'Description': full, 
-                            'Location': location})
-
-    # Narrowing down to the parts we want and updating the changes into the 
-    # indeed object
-    indeed = combine(indeed)
-
-
-    ### Doing the same for linkedin
+    # NLTK stopwords
+    stop = stopwords.words("english") + ["data"]
+    # Manual stopwords
+    my_stop = ["and", "to", "the", "of", "with", "data"]
     
+    combined_corpus = ""
+    for i in data["Description"]:
+        combined_corpus += '\n' + i
 
-    return indeed
+    # Generate word cloud visualization
+    wordcloud = WordCloud(width = 3000, height = 2000, random_state=1, background_color='salmon', colormap='Pastel1', collocations=False, stopwords = stop).generate(combined_corpus)
 
+    # Visualizing with a bar graph
+    plt.figure(figsize=(40, 30))
+    plt.imshow(wordcloud) 
+    plt.axis("off");
+ 
+    n = 30
+   
+    # Initializing the Count Vectorizer, exluding words that appear less than 5 times
+    bagofwords = CountVectorizer(min_df = 5, stop_words = stop)
+    words = bagofwords.fit_transform(data['Description'])
+    counts = pd.DataFrame(columns = bagofwords.get_feature_names(), data = words.toarray())
+    counts.head()
+
+    # Getting word frequencies
+    frequencies = counts.sum().sort_values(ascending = False)[1:n]
+
+    # Visualizing
+    plt.figure(figsize = (16, 5))
+    sns.barplot(frequencies.index, frequencies.values, palette = 'inferno')
+    plt.xticks(rotation = 90)
+    plt.title(f"Top {n} Most Frequent Words in the Corpus Inside")
+    plt.show()
+    
+    return counts
+    
+    
