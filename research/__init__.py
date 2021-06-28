@@ -80,7 +80,7 @@ class nlp_eda:
         plt.axis("off");
 
 
-    def visualize_counts(self, seq, n = 30, stopwords = None):
+    def visualize_counts(self, seq, n = 30, stopwords = None, color = "inferno"):
         '''
         Inputs:
         -------
@@ -98,8 +98,26 @@ class nlp_eda:
 
         # Visualizing
         plt.figure(figsize = (16, 5))
-        sns.barplot(frequencies.index, frequencies.values, palette = 'inferno')
+        sns.barplot(frequencies.index, frequencies.values, palette = color)
         plt.xticks(rotation = 90)
         plt.title(f"Top {n} Most Frequent Words in the Corpus Inside")
         plt.show()
+    
+    def visualize_seq_lengths(self, seq, title = "Distribution of Word Lengths"
+                              , color = None):
+        '''
+        Parameters:
+        -----------
+        seq: A Pandas Series or simply a list 
+        containing sequences of tokens
+        '''
+        seq = seq.apply(lambda x: x.split())
+        seq_lengths = [len(line) for line in seq]
+        plt.figure(figsize = (16, 5))
+        sns.distplot(seq_lengths, color = color, 
+            norm_hist = True)
+        plt.xlabel("Sequence Length")
+        plt.title(title)
+        plt.show()
+
 
