@@ -1,3 +1,8 @@
+'''
+Utils for NLP
+'''
+
+
 # Tells python that this directory should be treated like a package
 import pandas as pd
 import numpy as np

@@ -9,8 +9,7 @@ Source: [Github](https://github.com/jlgamez/indeed-jobs-scraper)
 I built on top of the work I found in these links to match my project needs.
 '''
 
-
-
+#%%
 import json
 import re
 import ssl
@@ -32,7 +31,7 @@ def main():
     url_to_scrape = BASE_URL + "/jobs?q=" + keywords + "&l=" + name_of_city
     number_of_pages_nos = int(number_of_pages)
     data_collected = scrape_data(url_to_scrape, number_of_pages_nos)
-    with open('results/data.json' + str(datetime.now())[:16], 'w') as fp:
+    with open('../data/scraping_results/data.json' + str(datetime.now())[:16], 'w') as fp:
         json.dump(data_collected, fp, sort_keys = True, indent = 4, ensure_ascii = False)
         
 def scrape_data(url_to_scrape, number_of_pages_nos):
@@ -88,3 +87,5 @@ if __name__ == "__main__":
     main()
     print("Extraction of data complete. check json file")
     
+
+# %%

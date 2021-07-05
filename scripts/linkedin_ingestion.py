@@ -1,4 +1,10 @@
 '''
+Creates LinkedIn ingestion script
+
+'''
+
+
+'''
 This scraper is an end-to-end script for scraping LinkedIn with Selenium.
 
 
@@ -20,7 +26,7 @@ Requirements:
 A config.txt file containing your username and password (separated with a space)
 
 '''
-
+#%%
 import requests, time
 from datetime import datetime
 from bs4 import BeautifulSoup
@@ -38,7 +44,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 # Initializing account info
 # My personal login info (I put it into config.txt for privacy reasons)
-with open('config.txt') as f:
+with open('../config.txt') as f:
     file = f.readlines()[0]
     username, password = file.split()
     
@@ -46,7 +52,7 @@ with open('config.txt') as f:
 def initialize():
     ''' Initializes a Chrome driver, opens linkedin and automatically inputs my username and password. '''
     # Input path to chrome driver executable
-    browser = webdriver.Chrome("../data/chromedriver2") # Now we're connected to a browser!
+    browser = webdriver.Chrome("../data/chromedriver-m1") # Now we're connected to a browser!
 
     # This driver allows us to access webpages from a chrome browser
     # Logging in to LinkedIn
@@ -217,3 +223,5 @@ def scrape():
     return df
 
 df = scrape()
+
+# %%
