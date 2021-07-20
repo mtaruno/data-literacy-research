@@ -86,6 +86,4 @@ def get_data_from_webpage(data_collected, soup):
 if __name__ == "__main__":
     main()
     print("Extraction of data complete. check json file")
-    
 
-# %%

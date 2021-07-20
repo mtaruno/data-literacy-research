@@ -1,24 +1,14 @@
 '''
 Creates LinkedIn ingestion script
 
-'''
-
-
-'''
-This scraper is an end-to-end script for scraping LinkedIn with Selenium.
-
-
-Their [terms and conditions](https://legal.linkedin.com/api-terms-of-use)
-
-LinkedIn doesn't like scrapers, so they don't have a personal API. But we can still do stuff with our scraping packages that I will show here.
-
-We have a lot of functionality that we could do - and these are limited to what I am able to access usually from my LinkedIn account. 
-
-Selenium provides an API that allows you to access web drivers including Firefox, Internet Explorer, and Chrome. I then use BeautifulSoup to parse the webpage information I am interested in.
-
-Source: https://levelup.gitconnected.com/linkedin-scrapper-a3e6790099b5
-
-From my research, there are two types of info people usually want to scrape from LinkedIn. The first is profile scraping (there are tools like PhantomBuster for that). But the one that we are more interested in for this project is the job descriptions. The code below is for this second part!
+* This scraper is an end-to-end script for scraping LinkedIn with Selenium.
+* Their [terms and conditions](https://legal.linkedin.com/api-terms-of-use)
+* LinkedIn doesn't like scrapers, so they don't have a personal API. But we can still do stuff with our scraping packages that I will show here.
+* We have a lot of functionality that we could do - and these are limited to what I am able to access usually from my LinkedIn account. 
+* Selenium provides an API that allows you to access web drivers including Firefox, Internet Explorer, and Chrome. I then use BeautifulSoup to parse the webpage information I am interested in.
+* Source: https://levelup.gitconnected.com/linkedin-scrapper-a3e6790099b5
+* From my research, there are two types of info people usually want to scrape from LinkedIn. The first is profile scraping (there are tools like PhantomBuster for that). 
+But the one that we are more interested in for this project is the job descriptions. The code below is for this second part!
 
 
 Requirements:
@@ -223,5 +213,3 @@ def scrape():
     return df
 
 df = scrape()
-
-# %%

@@ -6,3 +6,6 @@ Dev/crawler
 "Research Materials"
 config.txt
 data
+
+*/DS_STORE
+*/.ipynb_checkpoints
