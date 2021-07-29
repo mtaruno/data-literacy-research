@@ -1,6 +1,6 @@
 # Data Literacy Research
 
-In this research project, I collaborate with [Professor Sandra Cannon](https://www.sas.rochester.edu/dsc/people/faculty/cannon-sandra/index.html) in creating our own project 
+In this research project, I collaborate with [Professor Sandra Cannon](https://www.sas.rochester.edu/dsc/people/faculty/cannon-sandra/index.html) in measuring data literacy expectations from the ways employers describe jobs and the way they describe the people they are looking for.
 
 ## Current Pipeline
 
