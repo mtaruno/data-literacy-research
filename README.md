@@ -6,6 +6,9 @@ In this research project, I collaborate with [Professor Sandra Cannon](https://w
 
 ![Data Literacy Expectations Pipeline](https://user-images.githubusercontent.com/44710581/127424263-3b247261-b76a-417b-b2c0-dbd38091e8a2.png)
 
+![Data Literacy Expectations Pipeline Transparant](https://user-images.githubusercontent.com/44710581/127424664-0d90f2c7-e692-44f4-95c8-f70e3ba31d2c.png)
+
+
 
 # Files:
 
