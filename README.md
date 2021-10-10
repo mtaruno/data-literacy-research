@@ -25,7 +25,7 @@ Data files:
 
 
 # Utility Functions (in `utilities.utils`)
-* `to_wcdf`
+* `to_wcdf`: Applies sklearn CountVectorizer
 * `preprocess_heading_text`: Takes the Heading Text, which is initially intended for `merged_headings_df`, and applies a preprocessing pipeline on it
 * `visualize_counts`: Takes in a Pandas series of string row entiresand visualizes using Seaborn teh top n words in that corpus
 * `visualize_seq_lengths`: Visualizes the distribution of word lengths in a sequence
