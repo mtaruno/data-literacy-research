@@ -16,3 +16,14 @@ In this research project, I collaborate with [Professor Sandra Cannon](https://w
 
 ```indeed.py``` Same as linkedin.py but for indeed postings - results will be stored in data/scraping_results (tagged with "indeed")
 
+
+
+# Notes
+Data files:
+* `merged_headings_df`: Contains both the LinkedIn and Indeed postings in a single DataFrame
+
+
+
+# Utility Functions (in `utilities.utils`)
+* `to_wcdf`
+* `preprocess_heading_text`: Takes the Heading Text, which is initially intended for `merged_headings_df`, and applies a preprocessing pipeline on it
