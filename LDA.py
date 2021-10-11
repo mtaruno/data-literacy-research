@@ -35,4 +35,4 @@ class LDA:
         self.da = all_data[all_data["Job Title"] == 'data analyst']
 
     def main():
-        
+        pass

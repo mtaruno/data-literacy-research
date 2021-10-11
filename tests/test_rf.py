@@ -2,11 +2,7 @@ import unittest
 import utilities.rf as rf
 
 class TestRF(unittest.TestCase):
-    def load_data(self):
-        
-
-    def test_train_test_split(self):
-        df = 
-        
+    def test_load_data(self):
+        pass
 
 unittest.main()

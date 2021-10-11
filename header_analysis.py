@@ -1,6 +1,5 @@
 '''
 Header level analysis
-
 '''
 #%%
 import utilities.utils

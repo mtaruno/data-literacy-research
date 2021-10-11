@@ -25,6 +25,8 @@ def separate_into_groups(df):
 
 df['Heading Text'] = df['Heading Text'].apply(preprocess_heading_text)
 
+df = df[(df['Person/Job/Org/None'] == 'Job' )|(df['Person/Job/Org/None'] == 'Person')]
+
 #%%
 from utilities.rf import RFAnalysis
 from utilities.utils import to_wcdf
@@ -60,5 +62,7 @@ print("Getting feature importances...")
 importances = rf.get_feature_importances(fitted_grid, feature_names = X.columns.tolist(), save_directory_path = '/Users/mtaruno/Documents/DevZone/job-research/data/artifacts/importances/{}')
 # %%
 rf.visualize_feature_importances(importances)
+
+# %%
 
 # %%
